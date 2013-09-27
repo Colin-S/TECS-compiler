@@ -13,7 +13,7 @@ src =  ['tokenizer.cpp']
 
 # Build the VM program
 exe = 'compiler'
-env.Program(exe, create_objs(src + ['main.cpp']))
+env.Program(exe, create_objs(src + ['main.cpp', 'tokenizer.cpp', 'logger.cpp']))
 
 # Build the test program
 testExe = 'test/compilerTest'
