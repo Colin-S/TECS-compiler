@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <stdexcept>
 #include "main.h"
 #include "tokenizer.h"
 
@@ -14,20 +15,20 @@ Main::~Main(){
 
 void Main::Assert(bool passed, std::string msg){
   if(!passed){
-    throw std::exception(msg);
+    throw std::runtime_error(msg);
   }
 }
 
 //////////////////////////////////////////
 int main(int argc, char** argv){
+  Main main(true);
   try{
-      
-    Assert(argc == 2, "Incorrect number of arguments: " + std::string(argc));
+    main.Assert(argc == 2, "Incorrect number of arguments: " + std::to_string(argc));
     Tokenizer tokenizer();
     std::cout << "made tokenizer" << std::endl;
 
-  }catch(std::exception& e){
-    std::cout << "[ERROR] " << e.what();
+  }catch(std::runtime_error& e){
+    std::cout << "[ERROR] " << e.what() << std::endl;
     exit(0);
   }
 }

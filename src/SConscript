@@ -5,7 +5,7 @@ def create_objs(sourceFiles):
 		ret.append(env.Object(file))
 	return ret
 		
-env = Environment(CCFLAGS = '-g -Wall -O0', CC = 'g++')
+env = Environment(CCFLAGS = '-g -Wall -O0 -std=c++11', CC = 'g++')
 
 # Source files that are shared between main application and test application
 #src =  ['file.c', 'parser.c', 'codeWriter.c']
