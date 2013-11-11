@@ -1,34 +1,13 @@
-#include <iostream>
-#include <string>
-#include <stdexcept>
-#include "main.h"
-#include "tokenizer.h"
+#include "log.h"
 
-Main::Main(bool toStdout):
-  m_Logger(new Logger(toStdout))
-{
-}
-
-Main::~Main(){
-  delete m_Logger;
-}
-
-void Main::Assert(bool passed, std::string msg){
-  if(!passed){
-    throw std::runtime_error(msg);
-  }
+void initLog(){
+  FILELog::ReportingLevel() = logDEBUG3;
+  FILE* logfile = fopen( "log.txt", "w" );
+  Output2FILE::Stream() = logfile;
 }
 
 //////////////////////////////////////////
 int main(int argc, char** argv){
-  Main main(true);
-  try{
-    main.Assert(argc == 2, "Incorrect number of arguments: " + std::to_string(argc));
-    Tokenizer tokenizer();
-    std::cout << "made tokenizer" << std::endl;
-
-  }catch(std::runtime_error& e){
-    std::cout << "[ERROR] " << e.what() << std::endl;
-    exit(0);
-  }
+  initLog();
+  FILE_LOG(logINFO) << "Start";
 }
