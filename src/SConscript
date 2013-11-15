@@ -8,8 +8,9 @@ def create_objs(sourceFiles):
 env = Environment(CCFLAGS = '-g -Wall -O0 -std=c++11', CC = 'g++')
 
 # Source files that are shared between main application and test application
-#src =  ['file.c', 'parser.c', 'codeWriter.c']
-src =  []#['tokenizer.cpp', 'token.cpp']
+src =  ['compiler.cpp']
+src = src + ['tokenizer/tokenizerImpl.cpp']
+src = src + ['parser/parserImpl.cpp']
 
 # Build the VM program
 exe = 'compiler'
@@ -17,8 +18,6 @@ env.Program(exe, create_objs(src + ['main.cpp']))
 
 # Build the test program
 testExe = 'test/compilerTest'
-#testSrc = src + ['test/testMain.c','test/test_file.c', 'test/test_parser.c',
-#	'test/test_codeWriter.c', 'test/test_util.c']
-testSrc = src + ['test/testMain.cpp']#, 'test/testTokenizer.cpp']
+testSrc = src + ['test/testMain.cpp', 'test/testTokenizer.cpp']
 #SConscript('main.scons', variant_dir = 'test/build', duplicate = 0)
 env.Program(testExe, create_objs(testSrc))

@@ -1,12 +1,17 @@
 #ifndef TOKENIZER_H
 #define TOKENIZER_H
 
-class Tokenizer{
-  public:
-    static void tokenize(std::string fileName);
-  // break up each token by whitespace
-  // interpret the token's type (symbol, keyword, identifier)
-  // print each token to a file, wrapped in tags
+#include <iostream>
+#include <memory>
+
+class Tokenizer {
+public:
+  // Returns the name of the token file
+  virtual std::string tokenize(std::string& jackFileName) = 0;
+
+  static std::shared_ptr<Tokenizer> buildTokenizer();
+
+  virtual ~Tokenizer(){}
 };
 
 #endif

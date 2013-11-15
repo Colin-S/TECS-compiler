@@ -1,3 +1,4 @@
+#include <iostream>
 #include "log.h"
 #include "compiler.h"
 
@@ -12,5 +13,7 @@ void initLog(){
 //////////////////////////////////////////
 int main(int argc, char** argv){
   initLog();
-
+  std::string jackFileName(argv[1]);
+  Compiler compiler;
+  compiler.compile(jackFileName);
 }

@@ -2,14 +2,13 @@
 #define COMPILER_H
 
 #include <iostream>
+#include <memory>
+#include "tokenizer.h"
+#include "parser.h"
 
-// Compiler interface
 class Compiler {
 public:
-  // Returns the name of the vm file
-  std::string compile(std::string jackFileName);
-
-  virtual ~Compiler(){}
+  void compile(std::string jackFileName);
 };
 
 #endif
