@@ -2,13 +2,14 @@
 #define COMPILER_H
 
 #include <iostream>
-#include <memory>
-#include "tokenizer.h"
-#include "parser.h"
+#include <string>
 
 class Compiler {
 public:
-  void compile(std::string jackFileName);
+  Compiler(int argc, char** argv);
+  void compile();
+private:
+  std::string m_jackFileName;
 };
 
 #endif

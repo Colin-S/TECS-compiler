@@ -1,9 +1,11 @@
 #include <iostream>
 #include <memory>
+#include "../log.h"
 #include "../tokenizer.h"
 #include "tokenizerImpl.h"
 
 std::string TokenizerImpl::tokenize(std::string& jackFileName) {
+  FILE_LOG(logINFO) << "jack file name: " << jackFileName;
   return NULL;
 }
 
