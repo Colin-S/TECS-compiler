@@ -27,6 +27,6 @@ int main(int argc, char** argv){
     compiler.compile();
 
   } catch(std::exception& e) {
-    FILE_LOG(logERROR) << e.what();
+    FILE_LOG(logERROR) << "Caught error: " << e.what();
   }
 }

@@ -4,7 +4,7 @@
 #include "parserImpl.h"
 
 std::string ParserImpl::parse(std::string& tokenFile) {
-  return NULL;
+  return std::string();
 }
 
 std::shared_ptr<Parser> Parser::buildParser() {

@@ -1,9 +1,9 @@
 TECS-compiler
 =============
 
-Add unit test for tokenizer
 Implement tokenizer
 Add jenkins CI
 Static code analysis?
+bechmark every unit test?
 Profiling tool?
 Code coverage?
