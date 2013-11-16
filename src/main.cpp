@@ -13,7 +13,7 @@
 void initLog(){
   FILELog::ReportingLevel() = logDEBUG3;
   FILE* logfile = fopen( "log.txt", "w" );
-  (void)logfile;
+  (void)logfile; // suppress unused variable warning in debug mode
   Output2FILE::Stream() = OUTPUT_FILE;
   FILE_LOG(logINFO) << "Initialized log";
 }

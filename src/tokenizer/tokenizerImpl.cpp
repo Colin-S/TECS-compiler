@@ -6,6 +6,9 @@
 
 std::string TokenizerImpl::tokenize(std::string& jackFileName) {
   FILE_LOG(logINFO) << "jack file name: " << jackFileName;
+
+  // TODO: for testing
+  std::ifstream src("
   return NULL;
 }
 
