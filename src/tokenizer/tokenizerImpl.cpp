@@ -15,7 +15,6 @@ string TokenizerImpl::tokenize(string& jackFileName) {
   // Create name for token file
   istringstream iss(jackFileName);
   string directory;
-  string slash;
   string prefix;
   getline(iss, directory, '/');
   getline(iss, prefix, '.');
