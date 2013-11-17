@@ -9,16 +9,17 @@ SCENARIO("The tokenizer can tokenize jack files", "[tokenizer]") {
 
   GIVEN("A tokenizer") {
     std::shared_ptr<Tokenizer> pTokenizer = Tokenizer::buildTokenizer();
+    REQUIRE(pTokenizer);
 
     WHEN("Main.jack is tokenized") {
-      std::string jackfileName("../src/test/ArrayTest/Main.jack");
+      std::string jackfileName("ArrayTest/Main.jack");
       std::string tokenFileName = pTokenizer->tokenize(jackfileName);
 
       REQUIRE(tokenFileName == "MainT.xml");
 
       THEN("Main.jack is tokenized correctly") {
         std::ifstream tokenFile(tokenFileName.c_str());
-        std::ifstream testFile("../src/test/ArrayTest/MainT.xml");
+        std::ifstream testFile("ArrayTest/MainT.xml");
 
         std::string tokenFileLine;
         std::string testFileLine;
