@@ -5,27 +5,28 @@
 #include "../log.h"
 #include "../tokenizer.h"
 #include "tokenizerImpl.h"
+using namespace std;
 
-std::string TokenizerImpl::tokenize(std::string& jackFileName) {
+string TokenizerImpl::tokenize(string& jackFileName) {
   assert(!jackFileName.empty());
 
   FILE_LOG(logINFO) << "jack file name: " << jackFileName;
 
   // TODO: for testing
-  std::ifstream src("../src/test/ArrayTest/MainT.xml");
+  ifstream src("../src/test/ArrayTest/MainT.xml");
   assert(!src.fail());
 
-  std::string testFile("temtT.xml");
+  string testFile("tempT.xml");
   assert(!testFile.empty());
 
-  std::ofstream dest(testFile.c_str());
+  ofstream dest(testFile.c_str());
   assert(!dest.fail());
 
   dest << src.rdbuf();
   return testFile;
 }
 
-std::shared_ptr<Tokenizer> Tokenizer::buildTokenizer() {
-  std::shared_ptr<Tokenizer> pTokenizer(new TokenizerImpl());
+shared_ptr<Tokenizer> Tokenizer::buildTokenizer() {
+  shared_ptr<Tokenizer> pTokenizer(new TokenizerImpl());
   return pTokenizer;
 }
