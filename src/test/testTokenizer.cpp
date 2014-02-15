@@ -39,6 +39,7 @@ SCENARIO("The tokenizer can tokenize ArrayTest jack files", "[tokenizer]") {
       ifstream deletedFile(tokenFileName.c_str());
       REQUIRE(deletedFile.fail());
     }
+  }
 }
 
 SCENARIO("The tokenizer can tokenize SquareGame jack files", "[tokenizer]") {
@@ -74,4 +75,5 @@ SCENARIO("The tokenizer can tokenize SquareGame jack files", "[tokenizer]") {
       ifstream deletedFile(tokenFileName.c_str());
       REQUIRE(deletedFile.fail());
     }
+  }
 }
